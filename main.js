@@ -1,4 +1,5 @@
-var r,score=0,grade=1,lastHumanChoice;
+var r,score=0, lastHumanChoice;
+var grade=1
 var lastWinner="noone",lastComputerChoice="rock"; 
 function rock(){
   document.getElementById("myChoice").innerHTML="<img src=\"images/rock.png\"/>";
