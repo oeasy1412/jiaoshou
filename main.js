@@ -1,5 +1,17 @@
 var r,score=0,grade=1,lastHumanChoice;
 var lastWinner="noone",lastComputerChoice="rock"; 
+function audioB() {
+  var b = document.getElementById("bong").duration;
+  document.getElementById("demo").innerHTML = b;
+}
+function audioZ() {
+  var z = document.getElementById("zao").duration;
+  document.getElementById("demo").innerHTML = z;
+}
+function audioW() {
+  var w = document.getElementById("wan").duration;
+  document.getElementById("demo").innerHTML = w;
+}
 function rock(){
   document.getElementById("myChoice").innerHTML="<img src=\"images/rock.png\"/>";
   judge("rock");
@@ -42,6 +54,7 @@ function judge(myChoice){
     else if(computerResult=="scissors"){
       lastWinner = "human";
       score+=1;
+      audioB();
     }
     else if(computerResult=="paper"){
       lastWinner = "com";
@@ -59,12 +72,14 @@ function judge(myChoice){
     else if(computerResult=="paper"){
       score+=1;
       lastWinner = "human";
+      audioB();
     }
   }
   else{
     if(computerResult=="rock"){
       lastWinner = "human";
       score+=1;
+      audioB();
     }
     else if(computerResult=="scissors"){
       score-=1;
@@ -77,6 +92,7 @@ function judge(myChoice){
   if(score>=5){
     score=0;
     grade+=1;
+    audioZ();
   }
   document.getElementById("result").innerHTML="第"+grade+"关,积分："+score;
   if(grade>=8){
