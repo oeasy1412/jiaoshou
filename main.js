@@ -12,6 +12,10 @@ function audioW() {
   var w = document.getElementById("wan").duration;
   document.getElementById("demo").innerHTML = w;
 }
+function audiojs() {
+  var js = document.getElementById("js").duration;
+  document.getElementById("demo").innerHTML = js;
+}
 function rock(){
   document.getElementById("myChoice").innerHTML="<img src=\"images/rock.png\"/>";
   judge("rock");
@@ -46,6 +50,7 @@ function judge(myChoice){
   }
   else{
     computerResult = computerChoice();
+    audiojs();
   }
   if(myChoice=="rock"){
     if(computerResult=="rock"){
@@ -93,6 +98,7 @@ function judge(myChoice){
     score=0;
     grade+=1;
     audioZ();
+    audioW();
   }
   document.getElementById("result").innerHTML="第"+grade+"关,积分："+score;
   if(grade>=8){
