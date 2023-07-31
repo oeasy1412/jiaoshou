@@ -1,20 +1,20 @@
 var r,score=0,grade=1,lastHumanChoice;
 var lastWinner="noone",lastComputerChoice="rock"; 
 function audioB() {
-  var b = document.getElementById("bong").duration;
-  document.getElementById("demo").innerHTML = b;
+  var b = document.getElementById("bong");
+  b.play();
 }
 function audioZ() {
-  var z = document.getElementById("zao").duration;
-  document.getElementById("demo").innerHTML = z;
+  var z = document.getElementById("zao");
+  z.play();
 }
 function audioW() {
-  var w = document.getElementById("wan").duration;
-  document.getElementById("demo").innerHTML = w;
+  var w = document.getElementById("wan");
+  w.play();
 }
 function audiojs() {
-  var js = document.getElementById("js").duration;
-  document.getElementById("demo").innerHTML = js;
+  var js = document.getElementById("js");
+  js.play();
 }
 function rock(){
   document.getElementById("myChoice").innerHTML="<img src=\"images/rock.png\"/>";
