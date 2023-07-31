@@ -31,9 +31,9 @@ h1{
   width:700px
 }
 #container>#result{
-  margin-top:10px
+  margin-top:10px;
   font-size: 50px;
   width:600px;
-  height:100px
+  height:100px;
   text-align: center;
 }
