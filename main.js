@@ -49,6 +49,7 @@ function judge(myChoice){
     lastComputerChoice = computerResult;
   }
   else{
+    document.getElementById("computerName").innerHTML="完全随机";
     computerResult = computerChoice();
     audiojs();
   }
@@ -101,8 +102,11 @@ function judge(myChoice){
     audioW();
   }
   document.getElementById("result").innerHTML="第"+grade+"关,积分："+score;
-  if(grade>=8){
-    document.getElementById("result").innerHTML="NB,总通关了"+score;
+  if(grade>=5){
+    document.getElementById("demo").innerHTML="继续游戏，聆听可莉的祝福";
+  }
+  if(grade>=6){
+    document.getElementById("result").innerHTML="NB,总通关啦！"+score;
   }
 } 
 function go(){
