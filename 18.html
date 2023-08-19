@@ -16,16 +16,12 @@
   outline: none;
   text-decoration: none;
 }
-
-
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f7f7f7;
 }
-
-
 body .shell {
   width: 100%;
   position: relative;
@@ -34,405 +30,182 @@ body .shell {
   flex-direction: column;
   align-items: center;
 }
-
 body .shell-main-footer {
-
   width: 100%;
-
   position: relative;
-
   height: 100px;
-
   transform: translateY(100px);
-
   display: flex;
-
   justify-content: center;
-
   letter-spacing: 2px;
-
   align-items: center;
-
   text-align: center;
-
   font: 100 30px 'font';
-
   background-color: #a1e6ff;
-
 }
-
-
-
-
-
-
-
 body .shell-top {
-
   width: 100%;
-
   height: 100vh;
-
   background-image: linear-gradient(to bottom, rgb(24, 16, 61), rgb(31, 16, 25));
-
   position: absolute;
-
   transition: .2s;
-
   overflow: hidden;
-
 }
-
-
-
 body .shell-top video {
-
   width: 100%;
-
 }
-
-
-
 body .shell-top .word {
-
   position: absolute;
-
   left: 50%;
-
   top: 50%;
-
   transform: translate(-50%, -50%);
-
   width: 700px;
-
   height: 220px;
-
   border: solid 10px rgba(255, 255, 255, 0.199);
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   flex-direction: column;
-
 }
-
-
-
 body .shell-top .word h2 {
-
   font: 100 70px 'font';
-
   color: #fff;
-
   letter-spacing: 10px;
-
 }
-
-
-
 body .shell-main {
-
   width: 100%;
-
   height: auto;
-
   top: 100vh;
-
   position: relative;
-
   transition: .2s;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   margin-bottom: 100px;
-
 }
-
-
-
 body .shell-main::before {
-
   content: '';
-
   width: 250px;
-
   height: 50%;
-
   background-image: linear-gradient(to bottom, #a1e6ff, #a8ffe2, #a1e6ff);
-
   position: absolute;
-
   transform: translate(-145%, 0);
-
   z-index: -999;
-
   bottom: 0;
-
 }
-
-
-
 body .shell-main::after {
-
   content: '';
-
   width: 250px;
-
   height: 50%;
-
   background-image: linear-gradient(to bottom, #a1e6ff, #a8ffe2, #a1e6ff);
-
   position: absolute;
-
   transform: translate(145%);
-
   z-index: -999;
-
 }
-
-
-
 body .shell-main-nav {
-
   width: 100%;
-
   height: 55px;
-
   position: sticky;
-
   z-index: 999;
-
   top: 0;
-
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
   margin-bottom: 18vh;
-
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
-
   backdrop-filter: blur(13px);
-
 }
-
-
-
 body .shell-main-nav .logo {
-
   width: 220px;
-
   height: 100%;
-
   position: absolute;
-
   left: 5%;
-
   justify-content: space-between;
-
   display: flex;
-
   align-items: center;
-
 }
-
-
-
 body .shell-main-nav .logo img {
-
   width: 45px;
-
   height: 45px;
-
   border-radius: 50%;
-
 }
-
-
-
 body .shell-main-nav .logo span {
-
   font: 100 22px 'font';
-
   letter-spacing: 2px;
-
 }
-
-
-
 body .shell-main-nav ul {
-
   width: 600px;
-
   height: 100%;
-
   display: flex;
-
   justify-content: space-evenly;
-
   align-items: center;
-
   position: absolute;
-
   right: 5%;
-
 }
-
 body .shell-main-nav span {
-
   margin-left:42px;
-
 }
-
 body .shell-main-nav ul .nav-box {
-
   position: absolute;
-
   bottom: 1px;
-
   left: 0;
-
   width: 115px;
-
   height: 5px;
-
   border-radius: 2px;
-
   z-index: -999;
-
   transition: .5s;
-
 }
-
-
-
 body .shell-main-nav ul li {
-
   width: 150px;
-
   text-align: center;
-
 }
-
-
-
 body .shell-main-nav ul li a {
-
   color: #000;
-
   display: block;
-
   width: 100%;
-
   height: 100%;
-
   line-height: 60px;
-
   text-align: center;
-
 }
-
-
-
 body .shell-main-nav ul li:nth-child(2):hover~.nav-box {
-
-  left: 120px;
-
-  background-color: red;
-
+  left: 100px;
+  background-color: #ee0000;
 }
-
-
-
 body .shell-main-nav ul li:nth-child(3):hover~.nav-box {
-
-  left: 240px;
-
+  left: 220px;
   background-color: #8da1f8;
-
 }
-
-
-
 body .shell-main-nav ul li:nth-child(4):hover~.nav-box {
-
-  left: 360px;
-
+  left: 340px;
   background-color: #ffb1b1;
-
 }
-
-
-
 body .shell-main-nav ul li:nth-child(5):hover~.nav-box {
-
-  left: 480px;
-
+  left: 460px;
   background-color: #7df88e;
-
 }
-
-
-
 body .shell-main-lbt {
-
   position: relative;
-
   width: 100%;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   height: 650px;
-
   background-color: #66cc;
-
   margin-bottom: 150px;
-
   overflow: hidden;
-
-  background-image: url("../image/lbt.gif");
-
+  background-image: url("./image/keli1.jpg");
   background-color: #fff;
-
   background-repeat: no-repeat;
-
   background-size: contain;
-
   background-position: 50%;
-
 }
-
-
-
 body .shell-main-lbt .images {
-
   width: 300%;
-
   height: 100%;
-
   display: flex;
-
   align-items: center;
-
   position: absolute;
-
   left: 0;
-
   transition: .2s;
-
 }
-
-
-
 body .shell-main-lbt .images .img {
 
   position: relative;
@@ -1686,129 +1459,69 @@ body .shell-main-image-img img:nth-child(3) {
     right: -130px;
 
   }
-
-
-
   body .shell-top .word {
-
     width: 80%;
-
     height: 100px;
-
   }
-
-
-
   body .shell-top .word h2 {
-
     font-size: 30px;
-
   }
-
-
-
   body .shell-main-lbt .button .button-left,
-
   body .shell-main-lbt .button .button-right {
-
     width: 10px;
-
     font-size: 20px;
-
     opacity: .2;
-
   }
-
   body .shell-main-image{
-
     height: 500px;
-
   }
-
   body .shell-main-lbt{
-
     /* height: 300px; */
-
   }
-
 }
-
-
-
 @media (min-width:1300px) {
-
   body .shell-main-bottom {
-
     margin: 0;
-
   }
-
 }
-
     </style>
-
 </head>
 
 
 
 <body>
-
     <div class="shell">
-
         <div class="shell-top">
-
             <div class="word">
-
                 <h2>Welcome to</h2>
-
                 <h2>教授的新家</h2>
-
             </div>
 
 
 
-            <video src="./image/synth city by VISUALDON 4K 60 FPS.mP4" loop autoplay muted></video>
+            <video src="./image/00.mp4" loop autoplay muted></video>
 
 
 
         </div>
-
         <div class="shell-main">
-
             <div class="shell-main-nav">
-
                 <div class="logo">
-
                     <img src="./image/logo.jpg" alt="">
-
                     <span>keli</span>
-
                 </div>
-
                 <ul>
-
                     <li><a href="./index.html">主页<span>|</span></a></li>
-
                     <li><a href="./Template.html">图库<span>|</span></a></li>
-
                     <li><a href="./make.html">贺词<span>|</span></a></li>
-
                     <li><a href="./painter.html">版本<span>|</span></a></li>
-
                     <li><a href="./Login.html">登录</a></li>
-
                     <div class="nav-box"></div>
-
                 </ul>
-
             </div>
-
             <div class="shell-main-lbt">
-
                 <ui class="images">
-
                     <li class="img">
-
                         <div class="shell-main-lbt-word">
 
                             <h2>可莉的冒险</h2><br />
@@ -1846,85 +1559,45 @@ body .shell-main-image-img img:nth-child(3) {
                 </ui>
 
                 <ui class="min-images">
-
                     <li class="min"></li>
-
                     <li class="min"></li>
-
                     <li class="min"></li>
-
                 </ui>
-
                 <div class="button">
-
                     <div class="button-left"><</div>
-
                             <div class="button-right">></div>
-
                     </div>
-
                 </div>
-
                 <div class="shell-main-header">
-
                     <div class="shell-main-header-left">
-
                         <div class="shell-main-header-left-top">
-
                             <h2>这</h2>
-
                             <span>是一个可莉的世界<br />是一个人面授心的游戏</span>
-
                         </div>
-
                         <div class="shell-main-header-left-bottom">
-
                             <div id="container">
-
                                 <div id="mine">
-
                                     <h1>可莉出招</h1>
-
                                     <div id="myChoice">
-
                                         <img src="images/animation.gif" style="width:130px"/>
-
                                     </div>
-
                                         <input type="button" value="石头" onclick="rock()"; style="width:40px; height:25px; font-size:13px;"/>
-
                                         <input type="button" value="剪刀" onclick="scissors()"; style="width:40px; height:25px; font-size:13px;"/>
-
                                         <input type="button" value="布" onclick="paper();" style="width:40px; height:25px; font-size:13px;"/>
-
                                 </div>
-
                                 <div id="computer">
-
                                     <h1 id="computerName">电脑大锤</h1>
-
                                     <div id="computerChoice">
-
                                         <img src="images/animation.gif" style="width:130px"/>
-
                                     </div>
-
                                 </div>
-
                                 <div id="result"></div>
-
                             </div>
-
                         </div>
-
                         <div class="shell-main-header-left-footer">
-
                             <p>------01212050</p>
-
                         </div>
-
                     </div>
-
                     <div class="shell-main-header-right"></div>
 
                 </div>
