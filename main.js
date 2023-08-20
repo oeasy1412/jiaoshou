@@ -103,7 +103,7 @@ function judge(myChoice){
   }
   document.getElementById("result").innerHTML="第"+grade+"关,积分："+score;
   if(grade>=5){
-    document.getElementById("result").innerHTML="NB,总通关啦！"+score;
+    document.getElementById("result").innerHTML="NB,总通关啦！"+score+"继续游戏 聆听可莉的祝福";
   }
 } 
 function go(){
