@@ -1,156 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <link rel="icon" href="images/.jpg">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/index2.css">
-  <title>2050</title>
-  <style type="text/css">
-  
-  </style>
+    <meta charset="UTF-8">
+    <title>HB to 教授</title>
+    <style type="text/css">
+        * {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          outline: none;
+          text-decoration: none;
+        }
+        body .shell {
+          width: 100%;
+          position: relative;
+          height: auto;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        body .shell-main {
+          width: 100%;
+          height: auto;
+          top: 0;
+          position: relative;
+          transition: .2s;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 100px;
+        }
+        body .shell-main-nav {
+          width: 100%;
+          height: 55px;
+          position: sticky;
+          z-index: 999;
+          top: 0;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          margin-bottom: 18vh;
+          background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+          backdrop-filter: blur(13px);
+        }
+        
+        body .shell-main-nav .logo {
+          width: 220px;
+          height: 100%;
+          position: absolute;
+          left: 5%;
+          justify-content: space-between;
+          display: flex;
+          align-items: center;
+        }
+        
+        body .shell-main-nav .logo img {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+        }
+        
+        body .shell-main-nav .logo span {
+          font: 100 22px 'font';
+          letter-spacing: 2px;
+        }
+        
+        body .shell-main-nav ul {
+          width: 600px;
+          height: 100%;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          position: absolute;
+          right: 0;
+        }
+        body .shell-main-nav span {
+          margin-left:42px;
+        }
+        body .shell-main-nav ul .nav-box {
+          position: absolute;
+          bottom: 1px;
+          left: 0;
+          width: 115px;
+          height: 5px;
+          border-radius: 2px;
+          z-index: -999;
+          transition: .5s;
+        }
+        
+        body .shell-main-nav ul li {
+          width: 150px;
+          text-align: center;
+        }
+        
+        body .shell-main-nav ul li a {
+          color: #000;
+          display: block;
+          width: 100%;
+          height: 100%;
+          line-height: 60px;
+          text-align: center;
+        }
+        
+        body .shell-main-nav ul li:nth-child(2):hover~.nav-box {
+          left: 100px;
+          background-color: #ee0000;
+        }
+        
+        body .shell-main-nav ul li:nth-child(3):hover~.nav-box {
+          left: 220px;
+          background-color: #8da1f8;
+        }
+        
+        body .shell-main-nav ul li:nth-child(4):hover~.nav-box {
+          left: 340px;
+          background-color: #ffb1b1;
+        }
+        
+        body .shell-main-nav ul li:nth-child(5):hover~.nav-box {
+          left: 460px;
+          background-color: #7df88e;
+        }
+        body .img{
+            width:100%;
+            height:auto;
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <div class="header01">
-    </div>
-    <div class="header02">
-      <a href="keli.html" target="_blank">来和可莉一起玩游戏吧！</a>
-    </div>
-  <div class="nav">
-    <div class="wrap">
-      <ul>
-        <li class="li1">
-            <a href="#">主页<span>|</span></a>
-            <div class="nav-list1"></div>
-         </li>
-        <li class="li2">
-           <a href="#">图库<span>|</span></a>
-           <div class="nav-list1">
-           </div>
-         </li>
-        <li class="li3">
-          <a href="#">贺词<span>|</span></a>
-          <div class="nav-list1"></div>
-        </li>
-        <li class="li4">
-          <a href="#">版本<span>|</span></a>
-          <div class="nav-list1"></div>
-         </li>
-      </ul>
-    </div>
-  </div>
-  </div>
-  <div class="banner">
-    <img src="images/.jpg" alt="你好">
-  </div>
-  <div class="container">
-    <div class="world01">
-      <div class="world01-title"></div>
-      <div class="world01-box">
-        <a href="#">
-          <img src="images/.jpg">
-        </a>
-        <a href="#">
-          <img src="images/.jpg">
-        </a>
-      </div>
-  <div id="world02">
-    <ul id="imglist">
-      <li><a href="#"><img src="img/pic1.jpeg" alt=""></a></li>
-      <li><a href="#"><img src="img/pic2.jpeg" alt=""></a></li>
-      <li><a href="#"><img src="img/pic3.jpeg" alt=""></a></li>
-      <li><a href="#"><img src="img/pic4.jpeg" alt=""></a></li>
-      <li><a href="#"><img src="img/pic1.jpeg" alt=""></a></li>
-    </ul>
-
-    <ul id="icolist">
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-    </ul>
-
-    <div class="prev">《</div>
-    <div class="next">》</div>
-  </div>
-
-  <div id="test"></div>
-    </div>
-  </div>
+    <div class="shell">
+        <div class="shell-main">
+            <div class="shell-main-nav">
+                <div class="logo">
+                    <img src="./images/keli6.jpg" alt="">
+                    <span>keli</span>
+                </div>
+                <ul>
+                    <li><a href="./18.html">主页<span>|</span></a></li>
+                    <li><a href="./tuku.html">图库<span>|</span></a></li>
+                    <li><a href="./heci.html">贺词<span>|</span></a></li>
+                    <li><a href="./banben.html">版本<span>|</span></a></li>
+                    <li><a href="./Login.html">登录</a></li>
+                    <div class="nav-box"></div>
+                </ul>
+            </div>
+        </div>
+        <div class="img">
+            <img src="./images/jiao2.jpg" alt=""></img>
+            <img src="./images/jiao3.jpg" alt=""></img>
+            <img src="./images/jiao1.jpg" alt=""></img>
+            <img src="./images/jiao0.jpg" alt=""></img>
+            <img src="./images/jiao08.jpg" alt=""></img>
+            <img src="./images/keli666.jpg" alt=""></img>
+            <img src="./images/keli0.jpg" alt=""></img>
+            <img src="./images/keli4.jpg" alt=""></img>
+            <img src="./images/keli5.jpg" alt=""></img>
+        </div>
+    </div>
 </body>
 <script src="text/javascript">
-    var esico =     document.getElementById('icolist').getElementsByTagName('li');
-  var eicolist = document.querySelector('#icolist');
-  var eimglist = document.querySelector('#imglist');
-  var etest = document.querySelector('#test');
-  var eprev = document.querySelector('.prev');
-  var enext = document.querySelector('.next');
-  var left = 0;
-  var timer;
-    esico[2].style.backgroundColor = 'red';
-  run();
-// alert(Math.floor(3190/800));
-
-function run(){
-  if (left <= -3200) {
-    left = 0;
-  }
-  var m = Math.floor(-left/800) ;
-  imglist.style.marginLeft = left + 'px';
-  var n = (left % 800 == 0) ? n = 1200 : n = 6;
-  left -= 10;
-  icochange(m);
-  timer = setTimeout(run,n);
-}
-
-function icochange(m){
-  for (let index = 0; index < esico.length; index++) {
-    esico[index].style.backgroundColor = '';
-  }
-  if (m < esico.length) {
-    esico[m].style.backgroundColor = 'red';
-  }
-}
-
-function imgchange(n){
-  let lt = - (n  * 800)
-  imglist.style.marginLeft = lt + 'px';
-  left = lt;
-}
-
-eprev.onclick = function(){
-  let prevgo = Math.floor(-left/800)-1;
-  if (prevgo == -1) {
-    prevgo =3;
-  }
-  imgchange(prevgo);
-  icochange(prevgo);
-}
-
-enext.onclick = function(){
-  let nextgo = Math.floor(-left/800)+1;
-  if (nextgo == 4) {
-    nextgo =0;
-  }
-  imgchange(nextgo);
-  icochange(nextgo);
-}
-
-eicolist.onclick = function(){
-  var tg = event.target;
-  let ico = tg.innerHTML - 1;
-  imgchange(ico);
-  icochange(ico);
-}
-
-eimglist.onmouseover = function(){
-  clearTimeout(timer);
-}
-
-eimglist.onmouseout = function(){
-  run();
-    }
+    
 </script>
-</html>
+                </html>
