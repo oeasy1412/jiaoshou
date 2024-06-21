@@ -2,139 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="nav.css">
     <title>作者的话</title>
-    <style type="text/css">
-        * {
-          padding: 0;
-          margin: 0;
-          list-style: none;
-          outline: none;
-          text-decoration: none;
-        }
-        body .shell {
-          width: 100%;
-          position: relative;
-          height: auto;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        body .shell-main {
-          width: 100%;
-          height: auto;
-          top: 0;
-          position: relative;
-          transition: .2s;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin-bottom: 100px;
-        }
-        body .shell-main-nav {
-          width: 100%;
-          height: 55px;
-          position: sticky;
-          z-index: 999;
-          top: 0;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-          margin-bottom: 18vh;
-          background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
-          backdrop-filter: blur(13px);
-        }
-        
-        body .shell-main-nav .logo {
-          width: 220px;
-          height: 100%;
-          position: absolute;
-          left: 5%;
-          justify-content: space-between;
-          display: flex;
-          align-items: center;
-        }
-        
-        body .shell-main-nav .logo img {
-          width: 45px;
-          height: 45px;
-          border-radius: 50%;
-        }
-        
-        body .shell-main-nav .logo span {
-          font: 100 22px 'font';
-          letter-spacing: 2px;
-        }
-        
-        body .shell-main-nav ul {
-          width: 600px;
-          height: 100%;
-          display: flex;
-          justify-content: space-evenly;
-          align-items: center;
-          position: absolute;
-          right: 0;
-        }
-        body .shell-main-nav span {
-          margin-left:42px;
-        }
-        body .shell-main-nav ul .nav-box {
-          position: absolute;
-          bottom: 1px;
-          left: 0;
-          width: 115px;
-          height: 5px;
-          border-radius: 2px;
-          z-index: -999;
-          transition: .5s;
-        }
-        
-        body .shell-main-nav ul li {
-          width: 150px;
-          text-align: center;
-        }
-        
-        body .shell-main-nav ul li a {
-          color: #000;
-          display: block;
-          width: 100%;
-          height: 100%;
-          line-height: 60px;
-          text-align: center;
-        }
-        
-        body .shell-main-nav ul li:nth-child(2):hover~.nav-box {
-          left: 100px;
-          background-color: #ee0000;
-        }
-        
-        body .shell-main-nav ul li:nth-child(3):hover~.nav-box {
-          left: 220px;
-          background-color: #8da1f8;
-        }
-        
-        body .shell-main-nav ul li:nth-child(4):hover~.nav-box {
-          left: 340px;
-          background-color: #ffb1b1;
-        }
-        
-        body .shell-main-nav ul li:nth-child(5):hover~.nav-box {
-          left: 460px;
-          background-color: #7df88e;
-        }
-        body .box{
-            position:absolute;
-            top:55px;
-            width:100%;
-            font-size:50px;
-            margin-left:20px;
-            margin-right:20px;
-            border:solid 8px #233333;
-            background-color:rgba(104,204,255,.5);
-        }
-        body .box p{
-            margin:50px;
-        }
-        body .box p1{
-            color:rgba(0,0,0,.4);
-        }
+    <style>
+    body .main{
+        position: relative;;
+    }
+    
+    body .box{
+        position:absolute;
+        top:55px;
+        width:100%;
+        font-size:50px;
+        margin-left:20px;
+        margin-right:20px;
+        border:solid 8px #233333;
+        background-color:rgba(104,204,255,.5);
+    }
+    body .box p{
+        margin:50px;        
+    }
+    body .box p1{
+        color:rgba(0,0,0,.4);
+    }
+
+    @media (max-width:768px) {
+    body .shell-main-nav ul {
+        transform: scale(.7);
+        right: -60px;
+        top: 2px;
+    }
+    }
+    @media (max-width:600px) {
+    body .shell-main-nav .logo {
+        display: none;
+    }
+    body .shell-main-nav ul {
+        transform: scale(.6);
+        right: -120px;
+    }
+    }
     </style>
 </head>
 <body>
@@ -157,38 +65,49 @@
         </div>
         <div class="box">
             <h1>版本-更新日志</h1>
-            <p>
+<p>
 <strong>版本0.00.01</strong>（2023.07.08）<br />
 <br />
 ====于幻想乡百三十八季(妖怪历 日与秋与木之年)五月廿一，<u>新建文件夹啦</u>！！！<br />
 <br />
 <strong>版本1.00.01</strong>（2023.07.12）<br />
 <br />
-====着手主题内容的构思，并完成主页框架的搭建<p1>(指把一些乱想的主框架打出来)</p1><br />
+====主页框架搞定<p1>(指把一些乱想的排版打出来)</p1><br />
 <br />
 <strong>版本1.00.02</strong>（2023.07.14）<br />
 <br />
-====排版思路定稿，开始寻找可莉images和教授的弔图<p1>(找图还是一如既往的有趣(笑)……)</p1><br />
+====排版思路搞定，images++<p1>(找图还是一如既往的麻烦……)</p1><br />
 <br />
-<strong>版本1.00.03</strong>（2023.07.16）<br />
+<strong>版本1.01.01</strong>（2023.07.16）<br />
 <br />
-====图库搞定，版本更新板块搞定<p1>(doge)</p1><br />
+====图库搞定，版本更新搞定<p1>(doge)</p1><br />
 <br />
-<strong>版本1.00.04</strong>（2023.07.20）<br />
+<strong>版本1.01.11</strong>（2023.07.20）<br />
 <br />
-====动画css搞定，贺词板块搞定，着手网页内游戏与彩蛋内容，可莉音频wav完工<p1>(指 把那个鸽了的ai曲子换一个形式实现，就不算鸽了吧(笑)</p1></p1><br />
+====动画.css搞定，贺词搞定，可莉wav++<p1>(把那个鸽了的ai换一个形式就不算鸽了吧(笑)</p1></p1><br />
 <br />
-<strong>版本1.00.05</strong>（2023.07.26）<br />
+<strong>版本1.02.01</strong>（2023.07.26）<br />
 <br />
-====（代制作！）剪刀石头布游戏.js完工！！！<s><p1>(强悍如斯的RPG单人闯关剪刀石头布游戏！！！)</p1></s><br />
+====游戏.js搞定！！！<s><p1>(强悍如斯的剪刀石头布游戏！！！)</p1></s><br />
 <br />
-<strong>版本1.01.01</strong>（2023.10.30）<br />
+<strong>版本1.03.01</strong>（2023.10.30）<br />
 <br />
-====祝教授18岁生日快乐！！！<br /><br /></p>
+====教授18岁生日快乐！<br /><br />
+<br />
+<strong>版本1.03.11</strong>（2024.06.19）<br />
+<br />
+====上来看看，顺面改了些bug<p1>（笑）</p1><br /><br />
+<strong>版本1.03.21</strong>（2024.06.20）<br />
+<br />
+====又改了些bug<p1>（笑）</p1>，并加上了21点防赌博游戏！沃甚至还为它做了美术！！！<p1>(在贺词那里啦)</p1><br /><br />
+<strong>版本1.03.22</strong>（2024.06.21）<br />
+<br />
+====小加强了一下美术<p1>（耶!）</p1>，想做一个地牢肉鸽游戏<p1>(但是我好菜...)</p1><br /><br />
+
+
+
+        </p>
         </div>
     </div>
 </body>
-<script src="text/javascript">
-    
-</script>
-  </html>
+</html>
