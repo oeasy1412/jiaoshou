@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>地牢肉鸽</title>
+    <script>
+        var myname='War';//玩家昵称
+        var invade=1;//是否可掠夺商人
+    </script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-size:20px;
+        }
+        body .main{
+            position: relative;
+            width: 100%;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            line-height:20px;
+            background-color: #66ccff;
+        }
+        body .location{
+            position: absolute;
+            left: 39%;
+            top: 9%;
+            width: 22%;
+            height: 5%;
+            border: 6px solid #99f;
+            border-radius: 5%;
+            font-style:italic;
+            font-weight: 534.56;
+        }
+        body .box1,
+        body .box2{
+            position: absolute;
+            top: 6%;
+            width:16%;
+            height:200px;
+        }body .box1{
+            left: 10%;
+        }body .box2{
+            right: 10%;
+        }
+        body .box1 img{
+            width: 100%;
+        }
+        body .box2 img{
+            width: 100%;
+        }
+
+        body .myHP,
+        body .event,
+        body .myname,
+        body .comname{
+            height: 50px;
+            border: 1px solid #fff;
+        }
+        body .box3,
+        body .box4{
+            position: absolute;
+            left: 1%;
+            width:100%;
+            height:51px;
+        }body .box3{
+            top: 333px;
+        }body .box4{
+            top: 384px;
+        }
+        body .box3>div,
+        body .box4>div{
+            width:24%;
+            height:51px;
+            background-color:#EE0000;
+            border:2px solid #000;
+            line-height: 50px;
+            float:left;
+        }
+        body .box5{
+            position: absolute;
+            top: 140px;
+            right: 27%;
+            width:9%;
+            height:100px;
+        }body .box5>div{
+            width:100%;
+            height:49%;
+            background-color:#EE0000;
+            border:2px solid #000;
+            font-size:20px;
+            float:left;
+        }
+        body .myexp{
+            position: absolute;
+            top: 140px;
+            left: 27%;
+            width:9%;
+            height:100px;
+            background-color:#EE0000;
+            border:2px solid #000;
+            font-size:20px;
+        }
+        body .box6{
+            position: absolute;
+            top: 110px;
+            left: 44%;
+            width:12%;
+            height:120px;
+        }body .box6>div{
+            position: absolute;
+            width:100%;
+            height:100%;
+        }body .box6 img{
+            width: 100%;
+        }
+        body .date{
+            background-color: #39c8bb;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="main">
+        <div class="location"></div>
+        <div class="box1">
+            <div class="myname"></div>
+            <div class="myHP"></div>
+            <div id="myimg"><img src="./images/game/lv1.jpg" alt=""></img></div>
+        </div>
+        <div class="myexp"></div>
+        <div class="box3">
+            <div class="myd"></div>
+            <div class="myjia"></div>
+            <div class="mym"></div>
+            <div class="myfood"></div>
+        </div>
+        <div class="box4">
+            <div class="m1"></div>
+            <div class="m2"></div>
+            <div class="m3"></div>
+            <div class="m4"></div>
+        </div>
+        <div class="box2">
+            <div class="event"></div>
+            <div class="comname"></div>
+            <div id="comimg"><img src="./images/game/ling.jpg" alt=""></img></div>
+        </div>
+        <div class="box5">
+            <div class="comHP"></div>
+            <div class="comd"></div></div>
+        </div>
+        <div class="box6">
+            <div class="w"></div>
+            <img src="./images/game/fight.jpg" alt=""></img>
+        </div>
+    </div>
+    <div class="date"></div>
+    <audio id="exe"><source src="wav/暂停菜单.wav"></audio>
+    <audio id="A"><source src="wav/莎莎弹.wav"></audio>
+    <audio id="lv"><source src="wav/up.wav"></audio>
+    <audio id="three"><source src="wav/切.wav"></audio>
+    <audio id="wrong"><source src="wav/错误.wav"></audio>
+    <audio id="up"><source src="wav/kira.wav"></audio>
+    <audio id="boss"><source src="wav/击破boss.wav"></audio>
+    <audio id="guai"><source src="wav/tan.wav"></audio>
+    <audio id="yu"><source src="wav/嗡.wav"></audio>
+    </div>
+</body>
+
+<script>
+    var eloc = document.querySelector('.location');
+    var eplayer = document.querySelector('.box1');
+    var emyname = document.querySelector('.myname');
+    var emyHP = document.querySelector('.myHP');
+    var emyexp = document.querySelector('.myexp');
+    var emyd = document.querySelector('.myd');
+    var emyjia = document.querySelector('.myjia');
+    var emym = document.querySelector('.mym');
+    var emyfood = document.querySelector('.myfood');
+    var em1 = document.querySelector('.m1');
+    var em2 = document.querySelector('.m2');
+    var em3 = document.querySelector('.m3');
+    var em4 = document.querySelector('.m4');
+    var eevent = document.querySelector('.event');
+    var ecomname = document.querySelector('.comname');
+    var ecomHP = document.querySelector('.comHP');
+    var ecomd = document.querySelector('.comd');
+    var ew = document.querySelector('.w');
+    
+    var r=0,open=1,comp=0,mylv=1,myHP=20,myexp=getRandom(0,2),mexp=6,myd=0,mmyd=mylv*6,myjia=getRandom(0,0),mym=getRandom(0,5),myfood=getRandom(0,0),a=1,b=1,time=-1,mtime=3,shop=0,shang=0,sp='',sjia=0,djia=0,xiang=0,dong=0,du=0,boss=0,cost,miss=0,m,m1=1-invade,m2=1,m3,m4=0,q,p="预备...",p1,p2,p3,p4,expert,comHP0=0,comHP=0,comd=0;
+    
+    document.getElementById("guai").volume=0.3;
+    document.getElementById("up").volume=0.6;
+    document.getElementById("boss").volume=0.8;
+    
+    function print(){
+        if(myexp>=mexp){
+            document.getElementById("lv").play();
+            myexp-=mexp;
+            mexp+=6;
+            mmyd+=6;
+            mylv+=1;
+            myHP+=mylv;
+            if(mylv==2){document.getElementById("myimg").innerHTML="<img src=\"./images/game/lv2.jpg\"/>";}
+            else if(mylv==3){document.getElementById("myimg").innerHTML="<img src=\"./images/game/lv3.jpg\"/>";}
+            else if(mylv==4){document.getElementById("myimg").innerHTML="<img src=\"./images/game/lv4.jpg\"/>";}
+            else{document.getElementById("myimg").innerHTML="<img src=\"./images/game/lv5.jpg\"/>";}
+        }
+        
+        emyname.innerHTML='玩家:'+myname+' (Lv:'+mylv+')';
+        emyHP.innerHTML='HP:'+myHP;
+        ecomHP.innerHTML='HP:'+comHP+'/'+comHP0;
+        ecomd.innerHTML='攻:'+comd+'(- '+(myjia+du*2)+')';
+        emyexp.innerHTML='EXP:'+myexp+'/'+mexp;
+        emyd.innerHTML='攻:'+(myd+m4)+'/'+(mmyd+m4);
+        emyjia.innerHTML='甲:'+myjia;
+        emym.innerHTML='金:'+mym;
+        emyfood.innerHTML='粮:'+myfood;
+        em1.innerHTML='冰:'+m1;
+        em2.innerHTML='火:'+m2;
+        em3.innerHTML='毒:'+m3;
+        em4.innerHTML='武:'+m4;
+        if(b>3){a+=1;b=1;myfood-=1;document.getElementById("up").play();}
+        eloc.innerHTML=a+'层-'+b+'区-'+time+'/'+mtime;
+    }
+    
+    document.body.addEventListener('keyup',(e)=>{
+        if(e.key==='q'){ew.onclick();}
+        else if(e.key==='w'){eevent.onclick();}
+        else if(e.key==='e'){eplayer.onclick();}
+        else if(e.key==='1'){emyHP.onclick();}
+        else if(e.key==='2'){emyexp.onclick();}
+        else if(e.key==='3'){emyfood.onclick();}
+        else if(e.key==='4'){emyjia.onclick();}
+        else if(e.key==='5'){em4.onclick();}
+        else if(e.key==='a'){em1.onclick();}
+        else if(e.key==='s'){em2.onclick();}
+        else if(e.key==='d'){em3.onclick();}
+        else if(e.key==='f'){em4.onclick();}
+    });
+
+
+    function loc(){
+        if(a<=2){
+            if(time<mtime){
+                time+=1;
+            }else{
+                time=1;b+=1;}
+            if(b>3){a+=1;b=1;myfood-=1;document.getElementById("up").play();}
+            if(a==3){mtime=4;}
+        }else if(a<=5){
+            if(b<3){
+                mtime=4;
+                if(time<mtime){
+                    time+=1;
+                }else{
+                    time=1;b+=1;if(b==3){mtime=5;};}
+            }else if(b==3){
+                mtime=5;
+                if(time<mtime){
+                    time+=1;
+                }else{
+                    time=1;b+=1;}}
+        }else if(a>5){alert('Victory! (Lv:'+mylv+' 当前HP:'+myHP+'，共续命:'+miss+'次)');}
+        if(b>3){a+=1;b=1;myfood-=1;mtime=4;document.getElementById("up").play();}
+    }
+
+    function getRandom(min, max){
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    function getbao(){
+        const bao=['治疗泉水','突破瓶颈','体质淬炼','寒冰卷轴','烈火卷轴','剧毒卷轴']
+        const num5=getRandom(0,bao.length - 1)
+        m=bao[num5];
+        ecomname.innerHTML='恭喜您获得:'+m;
+        if(num5==0){
+            myHP+=8;
+        }else if(num5==1){
+            myexp+=4;
+        }else if(num5==2){
+            myjia+=1;myHP+=1;
+        }else if(num5==3){
+            m1+=1;
+        }else if(num5==4){
+            m2+=1;
+        }else if(num5==5){
+            m3+=1;
+        }
+    }
+    
+    function food(){
+        while(myfood<0){
+            myHP-=5;
+            myfood+=1;
+        }
+    }
+
+    function go(){
+        loc();
+        if(time==0){document.getElementById("exe").play();}
+        if(time==1){
+            p=p1=getp();
+        }else if(time==2){
+            p=p2=getp();
+            while(p2==p1){
+                p=p2=getp();
+            }
+        }else if(time==3){
+            p=p3=getp();
+            while((p3==p2)||(p3==p1)){
+                p=p3=getp();
+            }
+        }else if(time==4){
+            p=p4=getp();
+            while((p4==p3)||(p4==p2)||(p4==p1)){
+                p=p4=getp();
+            }
+        }else if(time==5){
+            p="地牢领主";
+        }function getp(){
+            const picks=['3选1','六机遇','白银宝箱','商人','陷阱','地牢小怪','地牢领主']
+            const num1 = getRandom(0, picks.length - 2)
+            return picks[num1]
+        }
+    }
+
+    function play(){
+        eevent.innerHTML=p;
+        ecomname.innerHTML='';
+        if(p=="地牢小怪"){
+            shop=0;
+            if(a<3){document.getElementById("comimg").innerHTML="<img src=\"./images/game/g1.jpg\"/>";}
+            else if(a<4){document.getElementById("comimg").innerHTML="<img src=\"./images/game/g3.jpg\"/>";}
+            else{document.getElementById("comimg").innerHTML="<img src=\"./images/game/g4.jpg\"/>";}
+            COM();
+        }else if(p=="六机遇"){
+            shop=0;
+            document.getElementById("comimg").innerHTML="<img src=\"./images/game/6.jpg\"/>";
+            const jiyu=['饱餐一顿','治疗药水','获得金币','修炼增强','装备强化','突遇小怪']
+            const num2=getRandom(0,jiyu.length - 1)
+            q=jiyu[num2];
+            eevent.innerHTML = p+'-'+q;
+            if(num2==0){
+                    myfood+=1;
+                }else if(num2==1){
+                    myHP+=1;
+                }else if(num2==2){
+                    mym+=1;
+                }else if(num2==3){
+                    myexp+=1;
+                }else if(num2==4){
+                    myjia+=1;
+                }else if(num2==5){
+                    COM();
+                }
+        }else if(p=="白银宝箱"){
+            open=0;
+            shop=0;
+            xiang=1;
+            document.getElementById("comimg").innerHTML="<img src=\"./images/game/bao.jpg\"/>";
+            const baoxiang=['1金','2金','2金+']
+            const num3=getRandom(0,baoxiang.length - 1)
+            q=baoxiang[num3];
+            eevent.innerHTML = p+'-点\"玩家\"';
+            eplayer.onclick=function(){
+                if(xiang==1){
+                xiang=0;
+                open=1;
+                eevent.innerHTML = p+'- '+q;
+                if(q=="1金"){
+                    mym+=1;print();
+                }else if(q=="2金"){
+                    mym+=2;print();
+                }else if(q=="2金+"){
+                    mym+=2;getbao();print();
+                }}
+            }
+        }else if(p=="商人"){
+            shop=1;
+            document.getElementById("comimg").innerHTML="<img src=\"./images/game/shop.jpg\"/>";
+            const race=['普通','矮人','矮人','精灵']
+            const num6=getRandom(0,race.length - 1)
+            sp=race[num6];
+            eevent.innerHTML = p+'('+sp+')';
+            emyHP.onclick = function(){
+                cost=3;
+                if(shop==1){
+                    if(mym>=cost){
+                        mym-=cost;
+                        myHP+=4;
+                        print();
+                    }else if(mym>0){
+                        mym-=1;
+                        myHP+=1;
+                        print();
+                    }}
+            }
+            emyjia.onclick = function(){
+                cost=3;
+                if(shop==1){
+                    if(mym>=cost){
+                        mym-=cost;
+                        myjia+=1;
+                        print();
+                    }}
+            }
+            emyfood.onclick = function(){
+                cost=1
+                if(shop==1){
+                    if(mym>=cost){
+                        mym-=cost;
+                        myfood+=1;
+                        print();
+                    }}
+            }
+            em4.onclick = function(){
+                cost=6
+                if(shop==1){
+                    if(mym>=cost){
+                        mym-=cost;
+                        m4+=getRandom(1,3);
+                        print();
+                    }}
+            }
+        }else if(p=="陷阱"){
+            document.getElementById("wrong").play();
+            shop=0;
+            document.getElementById("comimg").innerHTML="<img src=\"./images/game/xian.jpg\"/>";
+            const xianjin=['-1HP','-1EXP','-1甲','-1金','-1粮','-2HP,区+1']
+            const num4=getRandom(0,xianjin.length - 1)
+            q=xianjin[num4];
+            eevent.innerHTML = p+'- '+q;
+                if(num4==0){
+                    myHP-=1;
+                }else if(num4==1){
+                    myexp-=1;
+                }else if(num4==2){
+                    myjia-=1;
+                }else if(num4==3){
+                    mym-=1;
+                }else if(num4==4){
+                    myfood-=1;
+                }else if(num4==5){
+                    myHP-=2;b+=1;time=0;
+                }
+        }else if(p=="3选1"){
+            document.getElementById("three").play();
+            document.getElementById("comimg").innerHTML="<img src=\"./images/game/3.jpg\"/>";
+            open=0;
+            shop=0;
+            emyHP.onclick = function(){
+                if(open==0){
+                    open=1;myHP+=2;print();}
+            }
+            emyexp.onclick = function(){
+                if(open==0){
+                    open=1;myexp+=1;print();}
+            }
+            emyfood.onclick = function(){
+                if(open==0){
+                    open=1;myfood+=1;print();}
+            }
+        }else if(p=="地牢领主"){
+            shop=0;
+            document.getElementById("comimg").innerHTML="<img src=\"./images/game/ling.jpg\"/>";
+            COMBOSS();
+        }
+        
+        if(myHP<=0){miss+=1;}
+        
+        print();
+        food();
+	}
+	
+	function COMBOSS(){
+	    document.getElementById("yu").play();
+	    open=0;
+	    comp=1;
+	    boss=1;
+	    comHP0=comHP=(a+ 1)*5;
+	    comd=(a+ 1)*2+ 1;
+	}
+    function COM(){
+        document.getElementById("yu").play();
+        open=0;
+        comp=1;
+        r=getRandom(1,6);
+        comHP0=comHP=(a- 1)*3+b+r;
+        comd=Math.floor(a*2+b/3);
+    }
+	
+	em1.onclick = function(){
+	    if((open==0)&&(comp==1)){
+	        if(m1>0){
+	            m1-=1;comHP-=3;dong=1;print();}
+	    }
+	}
+	em2.onclick = function(){
+	    if((open==0)&&(comp==1)){
+	        if(m2>0){
+	            m2-=1;comHP-=8;print();}
+	    }
+	}
+	em3.onclick = function(){
+	    if((open==0)&&(comp==1)){
+	        if(m3>0){
+	            m3-=1;du+=1;print();}
+	    }
+	}
+	ew.onclick = function(){
+	    
+	    if((open==0)&&(comp==1)){
+	        r=getRandom(1,6);
+	        myd=r;
+	        for (let i=1;i<mylv;i+=1){
+	            r=getRandom(1,6);
+	            myd+=r;
+	        }
+	        comHP-=myd+du*3+m4-sjia;
+	        if(comHP<=0){
+	            if(boss==0){document.getElementById("guai").play();
+	            }else{boss=0;document.getElementById("boss").play();getbao();}
+	            if(!shang){myexp+=a;
+	            }else{
+	                myjia+=getRandom(0,1);m1+=getRandom(0,1);m2+=getRandom(0,1);m3+=getRandom(0,1);m4+=getRandom(0,1);
+	            }
+	            open=1;
+	            comp=shang=0;
+	            comd=0;djia=0;
+	            du=0;sjia=0;
+	        }else if(comHP>0){
+	            if(dong==0){myjia-=djia;myHP-=comd-myjia-du*2;document.getElementById("A").play();
+	            }else{dong=0;document.getElementById("A").play();}
+	        }
+	    }
+	    if(invade&&shop){
+	        document.getElementById("yu").play();
+            open=0;shop=0;
+            comp=1;shang=1;
+            comHP0=comHP=a*3+b+mylv*2;
+            comd=Math.floor(a*2+b/3);
+            if(sp=='矮人'){
+                const sr1=['重甲矮人','巨斧矮人','血牛矮人']
+                const s1=getRandom(0,sr1.length - 1)
+                sp=sr1[s1];
+                if(s1==0){
+                    sjia=getRandom(a+ 1,a*2);
+                    comHP0=comHP=comHP+getRandom(a,a*2);
+                    comd+=getRandom(1,a+ 1);
+                }else if(s1==1){
+                    comHP0=comHP=comHP+getRandom(1,a+ 1);
+                    comd+=getRandom(a*2,a*3);
+                }else if(s1==2){
+                    comHP0=comHP=comHP+getRandom(a*6,a*12);
+                    comd-=getRandom(0,mylv- 1);
+                }
+            }else if(sp=='精灵'){
+                const sr2=['剧毒精灵','破甲精灵','女精灵']
+                const s2=getRandom(0,sr2.length - 1)
+                sp=sr2[s2];
+                if(s2==0){
+                    du-=getRandom(1,a+ 1);
+                    comHP0=comHP=comHP- du;
+                    comd+=getRandom(1,-du);
+                }else if(s2==1){
+                    djia=1;
+                    r=myjia*6;
+                    comHP0=comHP=comHP+ r;
+                    comd+=getRandom(1,a+myjia+ 1);
+                }else if(s2==2){
+                    comHP0=comHP=myHP*2;
+                    comd=mylv*6+m4;
+                }
+            }
+            eevent.innerHTML = p+'('+sp+')';
+	    }
+	    print();
+	    if(comHP<0){comHP=0;}
+	}
+	eevent.onclick = function(){
+	    if(open==1){go();play();}
+	}
+	if(myexp==0){m3=0;expert='见习';
+	}else if(myexp==1){m3=1;expert='普通';
+	}else{m3=2;expert='资深';}
+	eevent.innerHTML='点击开始游戏';
+	document.querySelector('.date').innerHTML=mym+'金'+myfood+'粮的'+myjia+'甲 '+expert+'冒险家';
+	print();
+</script>
+</html>
