@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game 21点</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            font-size:14px;
+        }
+        body .main{
+            position: relative;
+            background-size: cover;
+            /* display: flex;    */
+            flex-direction: column;
+            line-height:20px;
+            width:100%;
+        }
+        body .main img{
+            position:relative;
+            width: 100%;
+            z-index: -9;
+        }
+        #imgop{
+            position: absolute;
+            left: 42%;
+            top:45%;
+            width: 16%;
+        }
+        body .pos{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        body .name{
+            position: absolute;
+        }
+        body .balance{
+            position:absolute;
+            top:14%;
+            left:7%;
+            width:4.2%;
+            height:10%;
+            background-color:#9999ff;
+            border:1px solid #000;
+            border-radius:50%;
+            line-height:42px;
+        }
+        body .com,
+        body .my{
+            position:absolute;
+            top:8%;
+            width:9%;
+            height: 8%;
+            border:3px solid #000;
+        }body .my{
+            left:27%;
+        } body .com{
+            left:63%;
+        }
+        body .illustrate{
+            position: absolute;
+            top: 51%;
+            left: 13%;
+            width: 20%;
+            height: 33%;
+            color:#00ffcc;
+        }
+        body .illustrate>img{
+            width: 33%;
+            float: left;
+        }
+
+        body .box{
+            position: relative;
+            height: 100%;
+        }body .box>div{
+            position: absolute;
+            left: 40%;
+            top:12%;
+            width:20%;
+            height:20%;
+            /* border:2px solid #000; */
+            background-color:#39C8BB;
+            float:left;
+        }
+        body .box>div:nth-child(1){
+            top: 50%;
+            background-color: unset;
+        }
+        body .box>div:nth-child(2){
+            top: 70%;
+            background-color: unset;
+        }
+        body .box>div:nth-child(3),
+        body .box>div:nth-child(4){
+            font-size: 20px;
+            line-height:64px;
+            border:2px solid #000;
+            transform: scale(.5);
+            width: 10%;
+            top: 50%;
+            left: 57%;
+        }
+        body .box>div:nth-child(4){
+            top: 70%;
+            background-color:#ffc839;
+        }
+        body .record{
+            height:100px;
+        }body .record>div{
+            width:49%;
+            height:81px;
+            border:3px solid #000;
+            background-color:#00ffcc;
+            float:left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <img src="./images/blg.jpg" alt=""></img>
+        <div id="imgop"><img src="./images/bottom.jpg" alt=""></img></div>
+        <div class="pos">
+            
+            <div class="balance"></div>
+            <div class="name"></div>
+            <div class="com"></div>
+            <div class="my"></div>
+            <div class="illustrate">
+                <img src="./images/keli6.jpg" alt=""></img>
+                <div class="word"></div>
+            </div>
+            <div class="box">
+                <div class="hit"></div>
+                <div class="stand"></div>
+                <div class="double"></div>
+                <div class="coins"></div>
+                <div class="money"></div>
+            </div>
+            <div class="record">
+                <div class="max"></div>
+                <div class="min"></div>
+            </div>
+        </div>
+    </div>
+    
+    <audio id=""><source src="wav/.wav"></audio>
+</body>
+
+<script>
+    var ename = document.querySelector('.name');
+    var emoney = document.querySelector('.money');
+    var ebalance = document.querySelector('.balance');
+    var ecom = document.querySelector('.com');
+    var emy = document.querySelector('.my');
+    var eword = document.querySelector('.word');
+    var ehit = document.querySelector('.hit');
+    var estand = document.querySelector('.stand');
+    var edouble = document.querySelector('.double');
+    var ecoins = document.querySelector('.coins');
+    var emax = document.querySelector('.max');
+    var emin = document.querySelector('.min');
+    
+    
+    var time=0,mym=4000,start=0,stand=0,db=0,defeat=0,max=4000,min=4000,comcard=0,card,card1=0,card2=0,card3=0,card4=0,card5=0,comcardA=0,mycardA=0,compoint=0,comp0,compA,mypoint=0,myp0,mypA,cost=0;
+    print0();
+    function print0(){
+        ebalance.innerHTML=mym+'¥';
+        emoney.innerHTML='已下注：'+cost+'¥ (点我发牌)';
+        ecom.innerHTML='下注开始游玩';
+        emy.innerHTML='';
+        eword.innerHTML='21点：先下注再发牌。double为只能再摸一张并下注翻倍'
+        edouble.innerHTML='double';
+        ecoins.innerHTML='下注 +400¥';
+        emax.innerHTML='Max：'+max+'¥';
+        emin.innerHTML='Min：'+min+'¥';
+    }function print(){
+        ebalance.innerHTML=mym+'¥';
+        emoney.innerHTML='已下注：'+cost+'¥ (点我发牌)';
+        emax.innerHTML='Max：'+max+'¥';
+        emin.innerHTML='Min：'+min+'¥';
+        ecom.innerHTML=comcard+'('+compoint+')';
+        emy.innerHTML=card1+' '+card2;
+        /*if(!(card3&&card4)){
+            emy.innerHTML=card1+' '+card2+' '+card3;
+        }*/
+        emy.innerHTML='：'+card1+' '+card2+' '+card3+' '+card4+' '+card5;
+    }
+    
+    function getRandom(min, max){
+		min = Math.ceil(min);
+		max = Math.floor(max);
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    function getcard(){
+        const c=[2,3,4,5,6,7,8,9,10,'J','Q','K','A']
+        const num=getRandom(0,c.length - 1-mycardA)
+        card=c[num];
+        if(card=='A'){
+            mycardA=1;
+        }else if(card=='J'||card=='Q'||card=='K'){
+            mypoint+=10;
+        }else{mypoint+=card;}
+        return card
+    }function getcomcard(){
+        const c=[2,3,4,5,6,7,8,9,10,'J','Q','K','A']
+        const num=getRandom(0,c.length - 1-comcardA)
+        card=c[num];
+        if(card=='A'){
+            comcardA=1;
+        }else if(card=='J'||card=='Q'||card=='K'){
+            compoint+=10;
+        }else{compoint+=card;}
+        return card
+    }
+    
+
+    document.body.addEventListener('keyup',(e)=>{
+        if(e.key==='Enter'){emoney.onclick();}
+        else if(e.key==='q'){ehit.onclick();}
+        else if(e.key==='w'){estand.onclick();}
+        else if(e.key==='e'){edouble.onclick();}
+        else if(e.key==='r'){ecoins.onclick();}
+    });
+
+    emoney.onclick=function(){
+            if(start&&stand&&cost){
+                MY();
+                judge();
+            }else if(!start&&cost){
+                start=1;
+                card1=getcard();card2=getcard();comcard=getcomcard();
+            }
+            print();
+    }
+    ecoins.onclick=function(){
+        if(!start){
+            cost+=400;mym-=400;
+            print();
+            document.getElementById("imgop").innerHTML="<img src=\"./images/bottom.jpg\"/>";
+    }}
+    estand.onclick=function(){
+        if(start){
+            stand=1;
+            COM();
+            print();
+            document.getElementById("imgop").innerHTML="";
+            emoney.innerHTML='已下注：'+cost+'¥ (点我下一轮)';  
+    }}
+    ehit.onclick=function(){
+        if(start&&(!stand)&&(!db)){
+            if(!card3){
+                card3=getcard();
+            }else if(!card4){
+                card4=getcard();
+            }else if(!card5){
+                card5=getcard();
+            }
+        }
+        print();
+    }
+    edouble.onclick=function(){
+        if(start&&(!stand)){
+            if(!db){
+                db=1;mym-=cost;cost*=2;
+                if(!card3){
+                    card3=getcard();
+                }else if(!card4){
+                    card4=getcard();
+                }else if(!card5){
+                    card5=getcard();
+                }
+            }
+        }
+        print();
+    }
+    function MY(){
+        if(mycardA){
+            mypoint+=11;
+            if(mypoint>21){
+                mypoint-=10;
+            }
+        }
+    }
+    function COM(){
+        if(!comcardA){
+            while(compoint<17){
+            comcard=getcomcard();}
+        }else{
+            compoint+=11;
+            while(compoint<17){
+                comcard=getcomcard();
+            }
+            if(compoint<=21){
+            }else{
+                compoint=1;
+                while(compoint<17){
+                comcard=getcomcard();
+            }}
+        }
+        if(cost>2400){compoint=getRandom(20,21);}//2024.04.12 updated*/
+    }
+    function judge(){
+        if(stand){
+            if(mypoint>21){
+                defeat=1;
+            }else if(compoint>21){
+                defeat=0;
+            }else if(compoint>=mypoint){
+                defeat=1;
+            }else{
+                defeat=0;
+            }
+            if(!defeat){
+                mym+=1.99*cost;
+            }
+            if(mym>max){
+                max=mym;
+            }else if(mym<min){
+                min=mym;
+            }
+        start=0;time+=0.5;cost=0;compoint=mypoint=0;db=0;stand=0;
+        card3=card4=card5=0;comcardA=mycardA=0;
+    }}
+    document.getElementById("").play();
+</script>
+</html>
