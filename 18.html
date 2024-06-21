@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 
@@ -12,62 +11,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="nav.css">
+
     <title>HB</title>
 
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet">
 
     <style>
 
 @charset "UTF-8";
-
-* {
-
-  padding: 0;
-
-  margin: 0;
-
-  list-style: none;
-
-  outline: none;
-
-  text-decoration: none;
-
-}
-
-
-
-body {
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  background-color: #f7f7f7;
-
-}
-
-
-
-body .shell {
-
-  width: 100%;
-
-  position: relative;
-
-  height: auto;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-}
-
-
-
 body .shell-main-footer {
 
   width: 100%;
@@ -93,11 +45,6 @@ body .shell-main-footer {
   background-color: #a1e6ff;
 
 }
-
-
-
-
-
 
 
 body .shell-top {
@@ -230,188 +177,6 @@ body .shell-main::after {
 
 }
 
-
-
-body .shell-main-nav {
-
-  width: 100%;
-
-  height: 55px;
-
-  position: sticky;
-
-  z-index: 999;
-
-  top: 0;
-
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-  margin-bottom: 18vh;
-
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
-
-  backdrop-filter: blur(13px);
-
-}
-
-
-
-body .shell-main-nav .logo {
-
-  width: 220px;
-
-  height: 100%;
-
-  position: absolute;
-
-  left: 5%;
-
-  justify-content: space-between;
-
-  display: flex;
-
-  align-items: center;
-
-}
-
-
-
-body .shell-main-nav .logo img {
-
-  width: 45px;
-
-  height: 45px;
-
-  border-radius: 50%;
-
-}
-
-
-
-body .shell-main-nav .logo span {
-
-  font: 100 22px 'font';
-
-  letter-spacing: 2px;
-
-}
-
-
-
-body .shell-main-nav ul {
-
-  width: 600px;
-
-  height: 100%;
-
-  display: flex;
-
-  justify-content: space-evenly;
-
-  align-items: center;
-
-  position: absolute;
-
-  right: 5%;
-
-}
-
-body .shell-main-nav span {
-
-  margin-left:42px;
-
-}
-
-body .shell-main-nav ul .nav-box {
-
-  position: absolute;
-
-  bottom: 1px;
-
-  left: 0;
-
-  width: 115px;
-
-  height: 5px;
-
-  border-radius: 2px;
-
-  z-index: -999;
-
-  transition: .5s;
-
-}
-
-
-
-body .shell-main-nav ul li {
-
-  width: 150px;
-
-  text-align: center;
-
-}
-
-
-
-body .shell-main-nav ul li a {
-
-  color: #000;
-
-  display: block;
-
-  width: 100%;
-
-  height: 100%;
-
-  line-height: 60px;
-
-  text-align: center;
-
-}
-
-
-
-body .shell-main-nav ul li:nth-child(2):hover~.nav-box {
-
-  left: 100px;
-
-  background-color: #ee0000;
-
-}
-
-
-
-body .shell-main-nav ul li:nth-child(3):hover~.nav-box {
-
-  left: 220px;
-
-  background-color: #8da1f8;
-
-}
-
-
-
-body .shell-main-nav ul li:nth-child(4):hover~.nav-box {
-
-  left: 340px;
-
-  background-color: #ffb1b1;
-
-}
-
-
-
-body .shell-main-nav ul li:nth-child(5):hover~.nav-box {
-
-  left: 460px;
-
-  background-color: #7df88e;
-
-}
-
-
-
 body .shell-main-lbt {
 
   position: relative;
@@ -426,13 +191,11 @@ body .shell-main-lbt {
 
   height: 650px;
 
-  background-color: #ee0000;
-
   margin-bottom: 150px;
 
   overflow: hidden;
 
-  background-image: url("./images/keli0.jpg");
+  background-image: url("./images/keli0.jpg" );
 
   background-color: #fff;
 
@@ -461,7 +224,6 @@ body .shell-main-lbt .images {
   left: 0;
 
   transition: .2s;
-
 }
 
 
@@ -481,7 +243,6 @@ body .shell-main-lbt .images .img {
   justify-content: center;
 
   overflow: hidden;
-
 }
 
 
@@ -888,7 +649,7 @@ body .shell-main-header-right {
 
   background-size: cover;
 
-  background-image: url("./images/keli5.jpg");
+  background-image: url("./images/keli5.jpg ") ;
 
   border: 5px solid #000;
 
@@ -1544,7 +1305,7 @@ body .shell-main-image-img img:nth-child(3) {
 
     flex-wrap: wrap;
 
-    height: 1400px;
+    height: 2000px;
 
   }
 
@@ -1599,8 +1360,6 @@ body .shell-main-image-img img:nth-child(3) {
 
 
   body .shell-main-bottom {
-
-    /* overflow:visible;     */
 
     margin: 200px;
 
@@ -1662,7 +1421,7 @@ body .shell-main-image-img img:nth-child(3) {
 
   body .shell-main-header {
 
-    height: 1200px;
+    height: 1600px;
 
   }
 
@@ -1704,7 +1463,7 @@ body .shell-main-image-img img:nth-child(3) {
 
     transform: scale(.6);
 
-    right: -130px;
+    right: -120px;
 
   }
 
@@ -1747,8 +1506,7 @@ body .shell-main-image-img img:nth-child(3) {
   }
 
   body .shell-main-lbt{
-
-    /* height: 300px; */
+    height: 300px;
 
   }
 
@@ -1785,12 +1543,7 @@ body .shell-main-image-img img:nth-child(3) {
                 <h2>教授的新家</h2>
 
             </div>
-
-
-
             <video src="./images/video.mp4" loop autoplay muted></video>
-
-
 
         </div>
 
@@ -1826,7 +1579,7 @@ body .shell-main-image-img img:nth-child(3) {
 
             <div class="shell-main-lbt">
 
-                <ui class="images">
+                <ul class="images">
 
                     <li class="img">
 
@@ -1864,17 +1617,17 @@ body .shell-main-image-img img:nth-child(3) {
 
                     </li>
 
-                </ui>
+                </ul>
 
-                <ui class="min-images">
-
-                    <li class="min"></li>
+                <ul class="min-images">
 
                     <li class="min"></li>
 
                     <li class="min"></li>
 
-                </ui>
+                    <li class="min"></li>
+
+                </ul>
 
                 <div class="button">
 
@@ -1908,7 +1661,7 @@ body .shell-main-image-img img:nth-child(3) {
 
                                     <div id="myChoice">
 
-                                        <img src="images/animation.gif" style="width:130px;"/>
+                                        <img src="images/animation.gif" style="width:130px;" alt=""/>
 
                                     </div>
 
@@ -1926,7 +1679,7 @@ body .shell-main-image-img img:nth-child(3) {
 
                                     <div id="computerChoice">
 
-                                        <img src="images/animation.gif" style="width:130px"/>
+                                        <img src="images/animation.gif" style="width:130px" alt=""/>
 
                                     </div>
 
@@ -2152,7 +1905,7 @@ body .shell-main-image-img img:nth-child(3) {
 
         }
 
-        if (top > 650) {
+        if (top > 369) {
 
             $('.shell-main-header-left-top').css('opacity', '1')
 
@@ -2244,7 +1997,7 @@ body .shell-main-image-img img:nth-child(3) {
 
             position()
 
-        }, 34000)
+        }, 23333)
 
     }
 
