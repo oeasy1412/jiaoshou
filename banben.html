@@ -26,6 +26,19 @@
     body .box p1{
         color:rgba(0,0,0,.4);
     }
+    body .shell-main::before {
+        content: '';
+        width: 250px;
+        height: 250px;
+        border: 20px solid rgba(0,255,204,0.5);
+        position: fixed;
+        top: 200px;
+        right: -100px;
+        border-radius: 10px;
+        transform: rotate(30deg);
+        animation: transform 5s infinite;
+        opacity: 0.8;
+    }
 
     @media (max-width:768px) {
     body .shell-main-nav ul {
