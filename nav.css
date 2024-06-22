@@ -137,21 +137,6 @@ body .shell-main-nav ul li:nth-child(5):hover~.nav-box {
   }
 }
 
-
-
-body .shell-main::before {
-  content: '';
-  width: 250px;
-  height: 250px;
-  border: 20px solid rgba(0,255,204,0.5);
-  position: fixed;
-  top: 200px;
-  right: -100px;
-  border-radius: 10px;
-  transform: rotate(30deg);
-  animation: transform 5s infinite;
-  opacity: 0.8;
-}
 @keyframes transform {
   0% {
   transform: rotate(30deg);
