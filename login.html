@@ -1,38 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" hrel="css/login.css"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="nav.css">
+    <title>忘记密码（确信）</title>
 </head>
+    <style>
+    body{
+    width:100%;
+    margin-top: 50px;
+    background:url(images/keli1.jpg) no-repeat;
+    background-size:cover;
+    }
+    body .word h1{
+    color:#39C8BB;
+    font-size:50px;
+    }
+    </style>
 <body>
-  <div>
-    <div class="box">
-      <h2>Login</h2>
-      <div class="input-box">
-        <label>账号</label>
-        <input type="text" placeholder="请输入学号">
-      </div>
-      <div class="input-box">
-        <label>密码</label>
-        <input type="password" placeholder="请输入密码">
-      </div>
-      <div class="btn-box">
-        <a href="./wangji.html" target="_blank">忘记密码？</a>
-        <div>
-          <button onclick="denlu()">登陆</button>
-          <button onclick="zhuce()">注册</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <div class="shell">
+        <div class="shell-main">
+            <div class="shell-main-nav">
+                <div class="logo">
+                    <img src="./images/keli6.jpg" alt="">
+                    <span>keli</span>
+                </div>
+                <ul>
+                    <li><a href="./18.html">主页<span>|</span></a></li>
+                    <li><a href="./tuku.html">图库<span>|</span></a></li>
+                    <li><a href="./heci.html">贺词<span>|</span></a></li>
+                    <li><a href="./banben.html">版本<span>|</span></a></li>
+                    <li><a href="./Login.html">登录</a></li>
+                    <div class="nav-box"></div>
+                </ul>
+            </div>
+            <audio id="myAudio" src="wav/audio.wav" autoplay="autoplay" loop="loop" controls="controls"/></audio>
+            <div class="word"><h1>其实根本没有账号密码（乐）</h1></div>
+        </div>
+    </div>
+    
 </body>
-<script src="text/javascript">
-  function denlu(){
-    
-  }
-  function zhuce(){
-    alert("非常抱歉，此功能尚未完善～")
-  }
+<script>
+    var bendan=1
+    function a(){
+        var js=prompt("请输入：教授是笨蛋！");
+        if(js==50){}
+        else if(js=="教授是笨蛋"){
+            alert("恭喜你第"+bendan+"次就答对了（笑）");
+        }
+        else if(js=="教授是笨蛋！"){
+            alert("恭喜你第"+bendan+"次就答对了！（笑）");
+        }
+        else{
+            bendan+=1;
+            alert("====密码错误！！");
+            return a();
+        }
+    }
+    function b(){
+        var k=prompt("请输入：可莉好可爱\n（以求可莉告之密码）");
+        if(k=="可莉好可爱"){
+            tl();
+            var pl = document.getElementById("myAudio");
+            pl.play();
+    }
+    else if(k=="50"){}
+    else{
+        alert("为什么不输！！！");
+        return b();
+    }
+    }
+    function tl(){
+        alert("你猜猜一会儿会发生什么？");
+        alert("再等等看～");
+        alert("也许会有奇迹哦");
+    }
+    alert("你好！我是可莉\n你是来找可莉玩的吗？");   
+    alert("你怎么会打开这个网页呀？");
+    tl();
+    alert("你相信奇迹吗?");
+    alert("我问你个问题啊");
+    tl();
+    alert("诶，好像没有奇迹诶");
+    alert("难道我们就这样放弃吗？");
+    tl();
+    alert("啊～你是不是觉得我不像可莉呀");
+    alert("都怪那个坏叔叔，是他让我说的（嘟嘴巴）");
+    alert("那我们现在进入正题吧!（乐）");
+    a();
+    b();
 </script>
 </html>
